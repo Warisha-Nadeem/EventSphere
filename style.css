@@ -657,3 +657,33 @@ header h1 {
     margin-bottom: 8px;
   }
 }
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin: 1.5em 0;
+}
+
+.search-container input {
+  width: 85%;
+  max-width: 450px;
+  padding: 0.8em 1.2em;
+  font-size: 1em;
+  color: var(--text-color);
+  border: none;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);  
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  outline: none;
+  transition: 0.3s;
+}
+
+.search-container input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.search-container input:focus {
+  border: 1px solid var(--accent-color);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+}

@@ -62,3 +62,19 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+function filterEvents() {
+  let input = document.getElementById("eventSearch").value.toLowerCase();
+  let cards = document.querySelectorAll(".fullwidth-card");
+
+  cards.forEach(card => {
+    let title = card.querySelector(".fullwidth-card-title").innerText.toLowerCase();
+    let description = card.querySelector(".fullwidth-card-text").innerText.toLowerCase();
+    
+    if (title.includes(input) || description.includes(input)) {
+      card.style.display = "flex"; // keep flex layout
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
+
