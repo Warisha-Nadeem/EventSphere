@@ -247,27 +247,32 @@ header h1 {
 }
 
 @media screen and (max-width: 750px) {
-    .glass {
-        width: 90%;
-        height: initial;
-        min-height: 30em;
-        border-radius: 15px;
-        flex-direction: column;
-        align-items: center;
-        padding: 2em;
-    }
-    .h-glass {
-        font-size: 3rem;
-        margin-bottom: 1em;
-    }
-    .glass .glass-inner-row {
-        flex-direction: column;
-        text-align: center;
-    }
-    .glass-image img {
-        width: 80%;
-    }
+  .glass {
+    width: 80%;         /* smaller than 90% */
+    min-height: auto;   /* remove fixed height */
+    height: auto;       /* let content decide */
+    border-radius: 12px;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.2em;     /* smaller padding */
+  }
+
+  .h-glass {
+    font-size: 1.8rem;  /* smaller heading */
+    margin-bottom: 0.6em;
+  }
+
+  .glass .glass-inner-row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .glass-image img {
+    width: 60%;         /* smaller image */
+    max-width: 200px;   /* cap image size */
+  }
 }
+
 
 /* --- Extra mobile responsiveness --- */
 @media (max-width: 480px) {
@@ -440,7 +445,7 @@ header h1 {
 }
 @media (max-width: 500px) {
     .form-container {
-        width: 90%;
+        width: 80%;
         padding: 20px;
     }
 }
@@ -627,6 +632,7 @@ header h1 {
     display: block;
   }
 }
+
 
 /* --- Card & Image Responsive Fix --- */
 @media (max-width: 600px) {
