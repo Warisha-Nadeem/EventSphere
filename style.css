@@ -396,28 +396,32 @@ header h1 {
       margin: 0 auto;
     }
 
-
 /* Glassmorphism form */
 .form-container {
     position: relative;
-    width: 400px;
+    max-width: 400px;   /* ✅ instead of fixed width */
+    width: 90%;         /* ✅ flexible for small screens */
     padding: 30px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-    margin: auto;
+    margin: 50px auto;  /* ✅ centers with spacing from top */
 }
+
+/* Heading */
 .form-container h2 {
     text-align: center;
     margin-bottom: 20px;
     color: #fff;
 }
+
+/* Inputs & textarea */
 .form-container input,
 .form-container textarea {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin-bottom: 15px;
     border: none;
     border-radius: 10px;
@@ -425,13 +429,16 @@ header h1 {
     color: #fff;
     font-size: 16px;
 }
+
 .form-container input::placeholder,
 .form-container textarea::placeholder {
     color: #ddd;
 }
+
+/* Button */
 .form-container button {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     border: none;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.3);
@@ -441,12 +448,27 @@ header h1 {
     transition: background 0.3s ease;
 }
 .form-container button:hover {
-    background: rgba(230, 49, 49, 0.685);
+    background: rgba(230, 49, 49, 0.85);
 }
-@media (max-width: 500px) {
+
+/* Responsive fix */
+@media (max-width: 600px) {
     .form-container {
-        width: 80%;
-        padding: 20px;
+        width: 85%;        /* ✅ almost full width */
+        padding: 20px;     /* ✅ less padding for small screens */
+        margin: 30px auto; /* ✅ spacing from top */
+    }
+
+    .form-container input,
+    .form-container textarea {
+        font-size: 10px;   /* ✅ smaller text */
+        padding: 10px;
+        
+    }
+
+    .form-container button {
+        font-size: 10px;
+        padding: 10px;
     }
 }
 
