@@ -1,0 +1,653 @@
+* {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+}
+
+nav {
+    z-index: 99;
+    position: relative;
+    transition: 0.4s;
+}
+
+nav a {
+    text-decoration: none;
+    color: rgb(248, 237, 237);
+}
+
+nav .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1em 2em;
+}
+
+nav .menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: inline-block;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 0.5em;
+}
+
+nav ul a {
+    font-size: 0.8em;
+    text-transform: uppercase;
+}
+
+nav .container .menu-btn {
+    display: none;
+}
+
+.social-media a {
+    font-size: 1em;
+}
+
+header h1 {
+    position: absolute;
+    text-transform: lowercase;
+    letter-spacing: 5px;
+    font-size: clamp(3.5rem, 15vw + 1rem, 12rem);
+    font-weight: 700;
+    transform: translateY(-50%);
+}
+
+/* Apply glass background to whole page */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0d0d0d; /* black base */
+  position: relative;
+  overflow-x: hidden;
+  color: white;
+  background: #0d0d0d;
+}
+
+/* Colorful blurred circles (background for full page) */
+body::before,
+body::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.55;
+  z-index: -1; /* keeps it behind content */
+}
+
+/* Red circle (top-left) */
+body::before {
+  width: 400px;
+  height: 400px;
+  background: red;
+  top: -120px;
+  left: -100px;
+}
+
+/* Blue circle (bottom-right) */
+body::after {
+  width: 350px;
+  height: 350px;
+  background: blue;
+  bottom: -100px;
+  right: -100px;
+}
+
+/* Header itself is now transparent, just for layout */
+header {
+  display: flex;
+  flex-direction: column;
+  min-height: 60px;
+  width: 100%;
+  height: auto;
+  background: transparent; /* no background */
+  position: relative;
+  z-index: 1; /* keeps nav/logo above background */
+}
+
+
+/* Optional: top navigation remains at the top */
+header .container {
+  width: 100%;
+}
+
+/* Glass box wrapper */
+header .glass {
+  width: 70%;
+  max-width: 900px;
+  min-height: 420px;
+  padding: 3rem;
+  background: rgba(236, 230, 230, 0.164);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50px;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,.3);
+  z-index: 1; /* above circles */
+}
+
+
+
+
+/* Spacer pushes glass down to vertical center */
+header .spacer {
+  flex: 1 0 auto;
+}
+
+
+
+.glass .glass-inner-row {
+  display: flex;
+  flex-direction: row-reverse; /* keep image on right */
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 2rem;
+}
+
+/* Heading smaller and stacked */
+.h-glass {
+  font-size: 3.5rem; /* reduce size */
+  line-height: 1.2;
+  color: #fff;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  font-family: "Pinyon Script", cursive;
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* Image sizing */
+.glass-image img {
+  width: 300px;
+  height: auto;
+  border-radius: 15px;
+  object-fit: cover;
+  /* box-shadow: 0 6px 20px rgba(0,0,0,0.3); */
+}
+
+
+.glass a {
+    color: #ebe1e1;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+.glass a i {
+    margin-left: 0.2em;
+}
+
+header h1 {
+    opacity: 1;
+}
+@keyframes text1 {
+    0% {
+        opacity: 0;
+        transform: translate(-2em, -50%);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0, -50%);
+    }
+}
+@keyframes text2 {
+    0% {
+        opacity: 0;
+        transform: translate(2em, -50%);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0, -50%);
+    }
+}
+
+/* Responsive nav */
+@media screen and (max-width: 900px) {
+    nav .container  {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    nav .menu {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        height: 0%;
+        overflow: hidden;
+        transition: 0.7s;
+    }
+    .nav-links li{
+        display: block;
+        margin: 0.5em 0;
+    }
+    .social-media li:nth-child(1){
+        margin-left: 0;
+    }
+    .social-media{
+        order: 2;
+    }
+    .nav-links{
+        order: 1;
+        padding-top: 1em;
+    }
+    nav .container .menu-btn {
+        display: inline-block;
+        font-size: 1.5em;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .glass {
+        width: 90%;
+        height: initial;
+        min-height: 30em;
+        border-radius: 15px;
+        flex-direction: column;
+        align-items: center;
+        padding: 2em;
+    }
+    .h-glass {
+        font-size: 3rem;
+        margin-bottom: 1em;
+    }
+    .glass .glass-inner-row {
+        flex-direction: column;
+        text-align: center;
+    }
+    .glass-image img {
+        width: 80%;
+    }
+}
+
+/* --- Extra mobile responsiveness --- */
+@media (max-width: 480px) {
+  nav .container {
+    padding: 0.5em 0.5em;
+  }
+  nav ul a {
+    font-size: 1em;
+  }
+  header .glass {
+    padding: 1em;
+    min-height: 220px;
+    border-radius: 12px;
+    width: 98%;
+    max-width: 100%;
+  }
+  .h-glass {
+    font-size: 2rem;
+  }
+  .glass-image img {
+    width: 100%;
+    max-width: 220px;
+  }
+  .cards-section {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 10px;
+  }
+  .card {
+    min-height: 120px;
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+  .form-container {
+    width: 98%;
+    padding: 10px;
+    border-radius: 12px;
+  }
+  footer .container {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0 0.5rem;
+    text-align: center;
+  }
+  .fullwidth-card {
+    flex-direction: column;
+    border-radius: 12px;
+  }
+  .fullwidth-card-right img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (max-height: 700px) {
+   header {
+    min-height: 60px;  /* or auto, or any value you prefer */
+    height: auto;
+   }
+}
+@media screen and (max-width: 500px) {
+    .glass .glass-inner-row div:nth-child(1){
+        display: none;
+    }
+}
+.card {
+      /* background: linear-gradient(135deg, rgba(255,0,0,0.22), rgba(0,0,255,0.22)); */
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 180px; /* adjust as needed */
+      box-shadow: 0 4px 15px rgba(219, 51, 51, 0.808);
+    }
+
+    .card h3 {
+      margin: 0 0 8px 0;
+      font-size: 1.25rem;
+    }
+
+    .card p {
+      margin: 0 0 12px 0;
+      line-height: 1.5;
+      opacity: 0.95;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    }
+
+    /* Button (glass) styling (reuseable) */
+    .btn-glass {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.25s ease;
+    }
+    .btn-glass:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    /* Simple responsive grid (no Bootstrap) */
+    .cards-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+      padding: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+
+/* Glassmorphism form */
+.form-container {
+    position: relative;
+    width: 400px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    margin: auto;
+}
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+}
+.form-container input,
+.form-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 16px;
+}
+.form-container input::placeholder,
+.form-container textarea::placeholder {
+    color: #ddd;
+}
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.3);
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+.form-container button:hover {
+    background: rgba(230, 49, 49, 0.685);
+}
+@media (max-width: 500px) {
+    .form-container {
+        width: 90%;
+        padding: 20px;
+    }
+}
+
+
+
+
+.container.my-5 {
+  flex: 1;
+}
+/* Footer */
+    footer {
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-top: 1px solid var(--glass-border);
+      padding: 2.5rem 0;
+      margin-top: 4rem;
+      width: 100%;
+      color: white;
+      border-radius: 24px 24px 0 0;
+    }
+
+    footer .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    footer .social-media {
+      display: flex;
+      gap: 1rem;
+    }
+
+    footer .social-media a {
+      color: white;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: var(--transition);
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+
+    footer .social-media a:hover {
+      background: var(--accent-color);
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+    }
+
+/* Card container: left + right layout */
+.fullwidth-card {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #2b0a15 0%, #1a0a2b 50%, #1a174b 100%);
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(0,0,0,.25);
+  border: 1px solid rgba(255,255,255,.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;              /* ✅ Row layout */
+  flex-direction: row;
+  align-items: stretch;
+  margin: 16px 0;
+}
+
+/* Left side (text + button) */
+.fullwidth-card-left {
+  flex: 2;                    /* Take more space for text */
+  display: flex;
+  flex-direction: column;
+}
+
+.fullwidth-card-header {
+  padding: 12px 18px;
+  font-weight: 600;
+  text-align: center;
+  font-size: 1.1rem;
+  border-bottom: 1px solid rgba(255,255,255,.15);
+  background: rgba(0,0,0,.12);
+}
+
+.fullwidth-card-body {
+  padding: 18px;
+}
+
+.fullwidth-card-title {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  text-align: start;
+}
+
+.fullwidth-card-text {
+  margin: 0 0 12px;
+  opacity: .92;
+  text-align: start;
+}
+
+/* Button stays left, no full width */
+.fullwidth-card-btn {
+  display: inline-block;
+  padding: 8px 14px;
+  background-color: #70a2ee7a;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+}
+.fullwidth-card-btn:hover {
+  background-color: #4e7caf;
+}
+
+/* Right side image */
+.fullwidth-card-right {
+  flex: 1;                   /* smaller portion */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.fullwidth-card-right img {
+  width: 50%;
+  height: 100%;
+  object-fit: cover;          /* keeps it neat */
+}
+
+/* --- Improved Responsive Navbar --- */
+@media (max-width: 600px) {
+  nav .container {
+    flex-direction: row;
+    align-items: center;
+    padding: 0.5em 0.5em;
+  }
+  nav .menu {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+  nav .container .menu-btn {
+    display: block;
+    font-size: 2em;
+    cursor: pointer;
+    margin-left: auto;
+  }
+  nav ul {
+    display: none;
+    width: 100%;
+    background: rgba(0,0,0,0.95);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 1em 0;
+    z-index: 999;
+    border-radius: 0 0 12px 12px;
+  }
+  nav ul.active {
+    display: block;
+  }
+  nav ul li {
+    display: block;
+    margin: 1em 0;
+    text-align: center;
+  }
+  nav ul a {
+    font-size: 1.1em;
+    padding: 0.7em 0;
+    display: block;
+  }
+}
+
+/* --- Card & Image Responsive Fix --- */
+@media (max-width: 600px) {
+  .cards-section {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 8px;
+  }
+  .card {
+    min-height: 100px;
+    padding: 10px;
+    font-size: 0.9rem;
+    width: 98%;
+    margin: 0 auto;
+  }
+  .card img {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-bottom: 8px;
+  }
+}
